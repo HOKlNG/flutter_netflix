@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_netflix/model/model_movie.dart';
+import 'package:flutter_netflix/widget/box_slide.dart';
 import 'package:flutter_netflix/widget/carousel_slider.dart';
+import 'package:flutter_netflix/widget/circle_slide.dart';
 
 class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
@@ -31,6 +33,12 @@ class _HomeScreenState extends State<HomeScreen> {
       'keyword': '사랑/로멘스/판타치',
       'poster': 'test_movie_1.png',
       'like': false
+    }),
+      Movie.fromMap({
+      'title': '사랑의 불시착',
+      'keyword': '사랑/로멘스/판타치',
+      'poster': 'test_movie_1.png',
+      'like': false
     })
   ];
 
@@ -48,7 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
             CarouselImage(movies: movies),
             TopBar()
           ]
-        )
+        ),
+        CircleSlider(movies: movies),
+        BoxSlider(movies: movies,)
       ],
     );
   }
