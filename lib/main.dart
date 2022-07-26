@@ -1,13 +1,23 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_netflix/screen/more_screen.dart';
 import 'package:flutter_netflix/widget/bottom_bar.dart';
 import 'package:flutter_netflix/screen/home_screen.dart';
 
-void main() => runApp(MyApp());
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  runApp(MyApp());
+}
 
 class MyApp extends StatefulWidget {
   _MyAppState createState() => _MyAppState();
 }
+
+
 
 class _MyAppState extends State<MyApp> {
   late TabController controller;
